@@ -1,0 +1,33 @@
+<div id="booking-pane">
+    <h4><span id="booking-{{booking["id"]}}-resource">{{ booking["resource"] }}</span></h4>
+ 	<label class="id-labels">Date:</label><span id="booking-{{booking["id"]}}-date">{{ booking["date"] }}<br></span>
+    <label class="id-labels">Time:</label> <span id="booking-{{booking["id"]}}-time">{{ booking["time"] }}<br></span>
+	<label class="id-labels">Unit:</label><span id="booking-{{booking["id"]}}-unit">{{ booking["unit"] }}</span><br>
+    <label class="id-labels">Documents required:</label> <span id="booking-{{booking["id"]}}-documents">{{ booking["documents"]  }}<br></span>
+    <label class="id-labels">Booked by:</label>
+    <span id="booking-{{booking["id"]}}-bookedby">{{booking["bookedby"]}}<br></span>
+	<label class="id-labels">Additional Notes<br></label>
+    <span id="booking-{{booking["id"]}}-notes">{{booking["notes"]}}</span><br>
+    {% if booking["confirmed"] == "true" %}
+    <br><b style="color:darkgreen">&#x2713; This booking has been confirmed</b><br>
+    {% else %}
+    <br><b style="color:darkred">&#x2717; This booking has not yet been confirmed</b><br>
+    {% endif %}
+
+    <div class="bottom-right btn-group btn-group-2">
+
+        {% if booking["confirmed"] == "true" %}
+        <button onClick="unconfirmBooking('{{ booking["id"] }}');return false;">Unconfirm </button>
+        {% else %}
+        <button onClick="confirmBooking('{{ booking["id"] }}');return false;">Confirm </button>
+        {% endif %}
+
+
+        <button onClick="loadBlock('bookingEdit',
+                                    '#booking-pane',
+                                    {'booking': '{{ booking["id"] }}'});
+        return false;">Edit </button>
+        <button onClick="deleteBooking('{{ booking["id"] }}'); return false;">Remove </button>
+
+    </div>
+</div>

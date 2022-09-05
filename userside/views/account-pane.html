@@ -1,0 +1,32 @@
+<div class="account-pane">
+	{% if personnel %}
+	<div class="text-center">
+		<h1 style="padding-bottom: 2%;">Welcome back, {{personnel["name"]}}</h1>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="center-left">
+				<h2 style="padding-bottom: 4%;">Personal Information</h2>
+				<label class="id-labels">Name:</label><span id="personnel-{{personnel["id"]}}-name">{{ personnel["name"] }}<br></span>
+				<label class="id-labels">Address:</label> <span id="personnel-{{personnel["id"]}}-address">{{ personnel["address"] }}<br></span>
+				<label class="id-labels">Email:</label> <span id="personnel-{{personnel["id"]}}-email">{{ personnel["email"] }}<br></span>
+				<label class="id-labels">Mobile:</label> <span id="personnel-{{personnel["id"]}}-mobile">{{ personnel["mobile"]  }}<br></span>
+			</div>
+			<div class="center-right">
+				<h2>Uploaded Documents:</h2>
+				<div class="text-center">
+					<p id="personnel-{{personnel["id"]}}-documents" style="padding-top:18%;">You currently don't have any uploaded documents</p>
+				</div>
+			</div>
+		</div>
+		<div class="row text-center">
+			<a class="btn btn-primary" style="margin-top:5%; margin-left:90%;" href="/authorise/signout">Sign Out</a>
+		</div>
+	</div>
+	{% else %}
+	<div class="button-center">
+		<h4 style="text-align:center;">Please sign in here:</h4>
+		<a class="btn btn-primary" href="{{signInUrl}}">Sign in with Outlook</a>
+	</div>
+	{% endif %}
+</div>

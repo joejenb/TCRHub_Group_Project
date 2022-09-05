@@ -1,0 +1,15 @@
+<ul id="booking-list" class="list-group left-view-list-group">
+    {% for booking in bookings %}
+    <li class="list-group-item border rounded booking-{{booking['id']}}-del">
+        <span class="booking-{{booking['id']}}-resource">{{ booking["resource"] }}</span>
+        <span class="booking-{{booking['id']}}-date bookings-list-item-top-row">{{ booking["date"] }}</span><br>
+        <span class="booking-{{booking['id']}}-time bookings-list-item-bottom-row">{{ booking["time"] }}</span>
+        <button class="middle-right" onClick="loadBlock('bookingInfo',
+                                                        '#booking-pane',
+                                                        {'booking': '{{ booking["id"] }}'});return false;">View</button>
+    </li>
+    {% endfor %}
+    <li>
+        <button onClick="loadBlock('bookingCreate', '#booking-pane'); return false;">Create booking</button>
+    </li>
+</ul>

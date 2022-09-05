@@ -1,0 +1,15 @@
+<div id="resource-pane">
+    <h3><span id="resource-{{resource["id"]}}-name">{{ resource["name"] }}</span></h3>
+	<label class="id-labels">Unit:</label><span id="resource-{{resource["id"]}}-unit">{{ resource["unit"] }}</span><br>
+    <label class="id-labels">Slot time:</label><span id="resource-{{resource["id"]}}-slot-time">{{ resource["slot-time"] }}</span><br>
+    <br>
+    <label class="id-labels">Location:</label><span id="resource-{{resource["id"]}}-location">{{resource["location"]}}</span><br>
+    <label class="id-labels">Description:</label><span id="resource-{{resource["id"]}}-description">{{resource["description"]}}</span><br>
+    <div class="bottom-right btn-group btn-group-2">
+        <button onClick="loadBlock('resourceEdit',
+                                    '#resource-pane',
+                                    {'resource': '{{ resource["id"] }}'});
+        return false;">Edit</button>
+        <button onClick="deleteResource('{{ resource["id"] }}'); return false;">Remove</button>
+    </div>
+</div>

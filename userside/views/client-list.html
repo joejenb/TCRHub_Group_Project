@@ -1,0 +1,15 @@
+<ul id="client-list" class="list-group left-view-list-group">
+    {% for client in clients %}
+    <li class="list-group-item border rounded client-{{client['id']}}-del">
+        <span class="client-{{client['id']}}-name">{{ client["name"] }}</span>
+        <span class="client-{{client['id']}}-email bookings-list-item-top-row">{{ client["email"] }}</span><br>
+        <span class="client-{{client['id']}}-address bookings-list-item-bottom-row">{{ client["address"] }}</span>
+        <button class="middle-right" onClick="loadBlock('clientInfo',
+                                                        '#client-pane',
+                                                        {'client': '{{ client["id"] }}'});return false;">View</button>
+    </li>
+    {% endfor %}
+    <li>
+        <button onClick="loadBlock('clientCreate', '#client-pane'); return false;">Create Client</button>
+    </li>
+</ul>

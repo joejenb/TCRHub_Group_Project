@@ -1,0 +1,232 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>TCRHub</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+          integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <script src="/javascripts/scripts.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar_main navbar-expand-sm">
+    <a class="navbar-brand" href="#homepage">
+        <img src="https://www.tcrhub.co.uk/wp-content/uploads/2016/10/logo.png" alt="TCRHub" height="35">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="main_nav">
+        <ul class="navbar-nav navbar__links_center">
+            <li class="nav-item">
+                <a class="nav-link" href="#homepage">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#bookings-manage">Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#clients">Clients</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#personnel">Personnel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#resources">Resources</a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#account">Account</a>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="homepage" class="content">
+    <div class="view-content" id="homepage-content">
+        <h2>Welcome to your TCR HUB!</h2>
+        <h4>This is where you can manage all of your day-to-day TCR activities</h4>
+        <hr>
+            <div class="row mt-2 left-right-row">
+                <div class="details border homepage-pane">
+                    <h3>Notes</h3>
+                    <ul class="notification-list">
+                        <li>
+                            <b>Power Outage</b> - All systems back online after Wednesday's power cut
+                        </li>
+                        <li>
+                            <b>Minibus Puncture</b> - Minibus #2 is out of service with a puncture
+                        </li>
+                        <li>
+                            <b>Recording Studio</b> - Recording studio #2 refitted with new amplifier
+                        </li>
+                    </ul>
+                </div>
+                <div class="details border homepage-pane">
+                    <h3>Notifications</h3>
+                    <ul class="notification-list">
+                        <li>
+                            <b>Welcome back Rob!</b> - <a href="#account">View your account</a>
+                        </li>
+                        <li>
+                            <b>Documents!</b> - <a href="#">Jamie sent in supporting documents</a>
+                        </li>
+                        <li>
+                            <b>Missing License</b> - <a href="#">Awaiting a driving license for Jane</a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+        <br>
+        <hr>
+        <div>
+            <!--
+<script type='text/javascript' src='https://darksky.net/widget/graph-bar/54.5415,-1.919/uk212/en.js?width=100%&height=300&title=Full Forecast&textColor=333333&bgColor=transparent&transparency=true&skyColor=undefined&fontFamily=Verdana&customFont=&units=uk2&timeColor=333333&tempColor=333333&currentDetailsOption=true'></script>
+-->
+ <iframe id="forecast_embed" frameborder="0" height="245" width="100%" src="//forecast.io/embed/#lat=54.5415&lon=-1.919&name=TCR Hub"></iframe>
+
+        </div>
+        <br>
+        <hr>
+    </div>
+</div>
+<div id="bookings">
+    <div id="bookings-calendar" class="content">
+        <div class="text-center">
+            <nav class="navbar navbar_sub navbar-expand">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav navbar__links_center">
+                        <li class="nav-item nav-underline">
+                            <a class="nav-link" href="#bookings-calendar">Booking Calendar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#bookings-manage">Manage Bookings</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="text-center">
+            <iframe style="border:none;width:100%;height:600px;" src="https://outlook.office365.com/owa/calendar/3fdea5fa71e746058a63ced0f60f43a3@durham.ac.uk/95778a7ba51f493fbe01cc5b7b836f9014368685488923316464/calendar.html">
+            </iframe>
+        </div>
+    </div>
+    <div id="bookings-manage" class="content">
+        <div class="text-center">
+            <nav class="navbar navbar_sub navbar-expand">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav navbar__links_center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#bookings-calendar">Booking Calendar</a>
+                        </li>
+                        <li class="nav-item nav-underline">
+                            <a class="nav-link" href="#bookings-manage">Manage Bookings</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="view-content">
+            <form class="form-inline active-cyan-4 mb-2">
+                <input class="form-control form-control-sm mr-3 3" type="text" placeholder="Search" aria-label="Search">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </form>
+			<div class="left-view-list overflow-auto center-left">
+				<ul id="booking-list" class="list-group left-view-list-group">
+					<!-- Filled with AJAX-->
+				</ul>
+			</div>
+			<div class="details border center-right">
+				<div id="booking-pane">
+
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+<div id="clients" class="content">
+    <div class="view-content">
+        <h3>Current Clients</h3>
+		<div class="left-view-list overflow-auto center-left">
+			<ul id="client-list" class="list-group left-view-list-group">
+				<!-- Filled with AJAX-->
+			</ul>
+		</div>
+		<div class="details border center-right">
+			<div id="client-pane">
+
+			</div>
+		</div>
+    </div>
+</div>
+<div id="personnel" class="content">
+    <div class="view-content">
+        <h3>Current Personnel</h3>
+		<div class="left-view-list overflow-auto center-left">
+			<ul id="personnel-list" class="list-group left-view-list-group">
+				<!-- Filled with AJAX-->
+			</ul>
+		</div>
+		<div class="details border center-right">
+			<div id="personnel-pane">
+			<!-- Filled with AJAX-->
+			</div>
+		</div>
+    </div>
+</div>
+<div id="resources" class="content">
+    <div class="view-content">
+        <h3>Resources</h3>
+		<div class="left-view-list overflow-auto center-left">
+			<ul id="resource-list" class="list-group left-view-list-group"></ul>
+		</div>
+		<div class="details border center-right">
+			<div id="resource-pane">
+				<!-- Filled with AJAX-->
+			</div>
+		</div>
+    </div>
+</div>
+<div id="account" class="content">
+	<div id="account-pane">
+	</div>
+</div>
+<script type="text/javascript">
+    $(".content").hide();
+</script>
+</body>
+</html>

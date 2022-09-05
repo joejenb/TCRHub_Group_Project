@@ -1,0 +1,25 @@
+<div class="basket-list">
+    <ul class="list-group left-view-list-group">
+        {% for item in basket %}
+        <li class="list-group-item border rounded basket-item">
+            {{ item["resource"] }} - {{ item["date"] }} - {{ item["time"] }}
+            <button class="middle-right" onClick="loadBlock('basketItemInfo',
+                                                        '#basket-item-info',
+                                                        {'basket':'{{basket_id}}', 'item': '{{ item["id"] }}'});">View </button>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!--
+<ul id="basketItem-list">
+	{% for item in basket %}
+    <li class="list-group-item border rounded item-{{item['id']}}-del">
+        <span class="item-{{item['id']}}-resource">{{ item["resource"] }}</span>
+        <span class="item-{{item['id']}}-date basketItem-top-row">{{ item["date"] }}</span><br>
+        <span class="item-{{item['id']}}-time basketItem-bottom-row">{{ item["time"] }}</span>
+        <button class="bottom-right" onClick="alert('button clicked')">Remove</button>
+    </li>
+    {% endfor %}
+</ul>
+-->

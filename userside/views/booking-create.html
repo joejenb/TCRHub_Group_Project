@@ -1,0 +1,58 @@
+<div id="booking-pane">
+    <form>
+        <h4><select type="text" id="booking-resource">
+            {% for resource in resources %}
+            <option id='resource-option-{{resource["id"]}}' value='{{resource["name"]}}'>{{resource["name"]}}</option>
+
+            {% endfor %}
+        </select></h4>
+        <script>
+            $('#booking-resource').change(function () {
+                {% for resource in resources %}
+                if ('{{resource["name"]}}' === $(this).val()) {
+                    //alert('{{resource["unit"]}}');
+                    $('#booking-unit').html('{{resource["unit"]}}') ;
+                }
+                {% endfor %}
+            });
+        </script>
+
+        Date: <input type="text" id="booking-date" value=""><br>
+        <script>
+            $(function () {
+                $("#booking-date").datepicker({});
+                $("#booking-date").attr('readonly', 'readonly');
+
+                $(".ui-widget").css('font-size', '1.2em');
+
+                var d = new Date();
+
+                var month = d.getMonth()+1;
+                var day = d.getDate();
+
+                var dateStr = d.getFullYear() + '/' +
+                    ((''+month).length<2 ? '0' : '') + month + '/' +
+                    ((''+day).length<2 ? '0' : '') + day;
+
+                $("#booking-date").attr('value', dateStr);
+            });
+        </script>
+        <!--Date: <input id="booking-date"></input><br>-->
+        Time:
+        <input type="time" id="booking-time" value="12:00"><br>
+        <br>
+        Unit: <span id="booking-unit">Music Studios</span><br><br>
+        Documents required:<br>
+        <span id="booking-documents"> <em>Out of scope for now</em><br></span><br>
+        Booked by:
+        <span id="booking-bookedby"><em>Current login session name?</em></span><br>
+        <br>
+        Additional notes:<br>
+        <span id="booking-notes"><em>None</em></span>
+        <br>
+        <div class="middle-right btn-group btn-group-2">
+            <button onClick="createBooking(); return false;">Save Changes</button>
+            <button onClick="loadBlock('bookingInfo', '#booking-pane', {}); return false;">Cancel Changes</button>
+        </div>
+    </form>
+</div>

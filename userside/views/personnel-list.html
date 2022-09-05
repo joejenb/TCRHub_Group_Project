@@ -1,0 +1,15 @@
+<ul id="personnel-list" class="list-group left-view-list-group">
+    {% for per in personnel %}
+    <li class="list-group-item border rounded personnel-{{per['id']}}-del">
+        <span class="personnel-{{per['id']}}-name">{{ per["name"] }}</span>
+        <span class="personnel-{{per['id']}}-email bookings-list-item-top-row">{{ per["email"] }}</span><br>
+        <span class="personnel-{{per['id']}}-address bookings-list-item-bottom-row">{{ per["address"] }}</span>
+        <button class="middle-right" onClick="loadBlock('personnelInfo',
+                                                        '#personnel-pane',
+                                                        {'personnel': '{{ per["id"] }}'});return false;">View</button>
+    </li>
+    {% endfor %}
+    <li>
+        <button onClick="loadBlock('personnelCreate', '#personnel-pane'); return false;">Create Personnel</button>
+    </li>
+</ul>

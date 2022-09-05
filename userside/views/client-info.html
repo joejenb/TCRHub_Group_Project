@@ -1,0 +1,18 @@
+<div id="client-pane" class="client-pane">
+	<h3><span id="client-{{client["id"]}}-name">{{ client["name"] }}</span></h3>
+	<label class="id-labels">Account Type:</label><span id="client-{{client["id"]}}-account-type">Client</span><br>
+	<label class="id-labels">Name:</label><span id="client-{{client["id"]}}-name">{{ client["name"] }}<br></span>
+	<label class="id-labels">Address:</label> <span id="client-{{client["id"]}}-address">{{ client["address"] }}<br></span>
+	<label class="id-labels">Email:</label> <span id="client-{{client["id"]}}-email">{{ client["email"] }}<br></span>
+	<label class="id-labels">Mobile:</label> <span id="client-{{client["id"]}}-mobile">{{ client["mobile"]  }}<br></span>
+	<label class="id-labels">Active Bookings:<br></label><span id="client-{{client["id"]}}-active-bookings"><br></span>
+	<label class="id-labels">Uploaded Documents:<br></label><span id="client-{{client["id"]}}-documents">None<br></span>
+	<label class="id-labels">Additional Notes<br></label><span id="client-{{client["id"]}}-notes">None<br></span>
+	<div class="bottom-right btn-group btn-group-2">
+		<button onClick="loadBlock('clientEdit',
+									'#client-pane',
+									{'client': '{{ client["id"] }}'});
+						return false;">Edit Profile</button>
+		<button onClick="deleteClient('{{ client["id"] }}'); return false;">Remove </button>
+	</div>
+</div>

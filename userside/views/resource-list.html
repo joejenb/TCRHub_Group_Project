@@ -1,0 +1,15 @@
+<ul id="resource-list" class="list-group left-view-list-group">
+{% for resource in resources %}
+    <li class="list-group-item border rounded resource-{{resource['id']}}-del">
+        <span class="resource-{{resource['id']}}-name">{{resource['name']}}</span> |
+        <span class="resource-{{resource['id']}}-unit bookings-list-item-top-row">{{resource['unit']}}</span><br>
+        <span class="resource-{{resource['id']}}-description bookings-list-item-bottom-row">{{resource['description']}}</span>
+        <button class="middle-right" onClick="loadBlock('resourceInfo',
+                                                        '#resource-pane',
+                                                        {'resource': '{{ resource["id"] }}'});return false;">View</button>
+    </li>
+{% endfor %}
+    <li>
+        <button onClick="loadBlock('resourceCreate', '#resource-pane'); return false;">Create resource</button>
+    </li>
+</ul>

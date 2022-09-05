@@ -1,0 +1,25 @@
+<div id="booking-pane">
+    <h4><span id="booking-{{booking["id"]}}-resource">{{ booking["resource"] }}</span></h4>
+	<label class="id-labels">Date:</label><span id="booking-{{booking["id"]}}-date">{{ booking["date"] }}<br></span>
+    <label class="id-labels">Time:</label> <span id="booking-{{booking["id"]}}-time">{{ booking["time"] }}<br></span>
+    <label class="id-labels">Documents required:</label> <span id="booking-{{booking["id"]}}-documents">{{ booking["documents"]  }}<br></span>
+    <label class="id-labels">Booked by:</label>
+    <span id="booking-{{booking["id"]}}-bookedby">{{booking["bookedby"]}}<br></span>
+	<label class="id-labels">Additional Notes<br><br></label>
+	<span id="booking-{{booking["id"]}}-notes">{{booking["notes"]}}<br></span>
+    {% if booking["confirmed"] == "true" %}
+    <b style="color:darkgreen">&#x2713; This booking has been confirmed</b>
+    {% else %}
+	<b style="color:darkred">&#x2717; This booking has not yet been confirmed</b><br>
+    {% endif %}
+
+    <div style="padding-left: 70%; padding-bottom: 3%;">
+
+        <button onClick="loadBlock('bookingEdit',
+                                    '#booking-pane',
+                                    {'booking': '{{ booking["id"] }}'});
+        return false;">Edit </button>
+        <button onClick="deleteBooking('{{ booking["id"] }}'); return false;">Remove </button>
+
+    </div>
+</div>

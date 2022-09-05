@@ -1,0 +1,22 @@
+<div id="resource-pane">
+    <h3><input id="resource-name" value="{{ resource["name"] }}"></input></h3>
+    <label class="id-labels">Unit:</label>
+    <select type="text" id="resource-unit">
+        {% for unit in units %}
+        <option id='unit-option-{{unit["id"]}}' value='{{unit["name"]}}'
+                {% if resource["unit"] == unit["name"] %}selected{% endif %}>{{unit["name"]}}</option>
+        {% endfor %}
+    </select><br><br>
+    <label class="id-labels">Slot time:</label> <input id="resource-slot-time" value="{{ resource["slot-time"] }}"></input><br>
+    <br>
+    <label class="id-labels">Location:</label> <input id="resource-location" value="{{resource["location"]}}"></input><br>
+    <label class="id-labels">Description:</label> <input id="resource-description" value="{{resource["description"]}}"></input><br>
+    <div class="bottom-right btn-group btn-group-2">
+        <button onClick="saveResource('{{ resource["id"] }}'); return false;">Save Changes</button>
+        <button onClick="loadBlock('resourceInfo',
+                                   '#resource-pane',
+                                   {'resource': '{{resource["id"] }}'}); return false;">Cancel Changes
+        </button>
+
+    </div>
+</div>

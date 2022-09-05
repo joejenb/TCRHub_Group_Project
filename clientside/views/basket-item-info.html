@@ -1,0 +1,20 @@
+<div id="basket-item-info">
+    <h4><span id="item-{{item["id"]}}-resource">{{ item["resource"] }}</span></h4>
+    Date: <span id="item-{{item["id"]}}-date">{{ item["date"] }}</span><br>
+    Time: <span id="item-{{item["id"]}}-time">{{ item["time"] }}</span><br>
+    <br>
+    Documents required: <span id="item-{{item["id"]}}-documents">{{ item["documents"]  }}</span><br>
+    <br>
+    Additional Notes<br>
+    <span id="item-{{booking["id"]}}-notes">{{item["notes"]}}</span><br>
+
+    <div class="bottom-right btn-group btn-group-2">
+
+        <button onClick="loadBlock('itemEdit',
+                                    '#basket-pane',
+                                    {'item': '{{ item["id"] }}'});
+        return false;">Edit </button>
+        <button onClick="cancelBooking('{{basket_id}}', '{{ item["id"] }}'); return false;">Remove </button>
+
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div id="booking-pane">
+    <form>
+        <h4><select type="text" id="booking-resource">
+            {% for resource in resources %}
+            <option value='{{resource["name"]}}' {% if booking["resource"] == resource["name"] %}selected{% endif %}>{{resource["name"]}}</option>
+            {% endfor %}
+        </select></h4>
+        <script>
+            $('#booking-resource').change(function () {
+                {% for resource in resources %}
+                if ('{{resource["name"]}}' === $(this).val()) {
+                    //alert('{{resource["unit"]}}');
+                    $('#booking-unit').html('{{resource["unit"]}}') ;
+                }
+                {% endfor %}
+            });
+        </script>
+		<label class="id-labels">Date:</label><input type="text" id="booking-date" value="{{booking['date']}}"><br>
+        <script>
+            $(function () {
+                $("#booking-date").datepicker();
+                $("#booking-date").attr('readonly', 'readonly');
+                $(".ui-widget").css('font-size', '1.2em');
+            });
+        </script>
+        <label class="id-labels">Time: </label><input id="booking-time" type="time" value="{{booking['time']}}"></input><br>
+        <br>
+        <label class="id-labels">Unit: </label><span id="booking-unit">{{booking['unit']}}</span><br>
+        <label class="id-labels">Documents required: </label><span id="booking-documents">{{booking['documents']}}</span><br>
+        <label class="id-labels">Booked by:</label><span id="booking-bookedby">{{booking['bookedby']}}</span><br>
+        <label class="id-labels">Additional notes:</label><br>
+        <span id="booking-notes">{{booking['notes']}}</span>
+        <br>
+		<div class="bottom-right btn-group btn-group-2">
+			<button onClick="saveBooking('{{ booking["id"] }}'); return false;">Save Changes</button>
+			<button onClick="loadBlock('bookingInfo',
+									   '#booking-pane',
+									   {'booking': '{{ booking["id"] }}'}); return false;">Cancel Changes
+			</button>
+		</div>
+    </form>
+</div>

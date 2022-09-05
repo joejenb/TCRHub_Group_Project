@@ -1,0 +1,23 @@
+<div id="client-pane">
+    <form>
+    <h4><input type="text" id="client-name" value=""></input></h4>
+    Account Type: <span id="client-account-type">Client</span><br>
+    Address: <input id="client-address" value=""></input><br>
+    <br>
+    Email: <input id="client-email" value=""></input><br>
+    Mobile: <input id="client-mobile" value=""></input><br>
+    <br>
+    Active Bookings:<br>
+    <span id="client-active-bookings"></span><br>
+    <br>
+    Uploaded Documents:<br>
+    <span id="client-documents">None</span>
+    <br>
+    Additional Notes<br>
+    <span id="client-notes">None</span><br>
+    <div class="bottom-right btn-group btn-group-2">
+        <button onClick="createClient(); return false;">Save Changes</button>
+        <button onClick="loadBlock('clientInfo', '#client-pane', {}); return false;">Cancel Changes</button>
+    </div>
+    </form>
+</div>

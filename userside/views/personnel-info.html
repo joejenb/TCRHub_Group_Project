@@ -1,0 +1,18 @@
+<div id="personnel-pane">
+    <h3><span id="personnel-{{personnel["id"]}}-name">{{ personnel["name"] }}</span></h3>
+	<label class="id-labels">Account Type:</label><span id="personnel-{{personnel["id"]}}-account-type">Personnel</span><br>
+	<label class="id-labels">Name:</label><span id="personnel-{{personnel["id"]}}-name">{{ personnel["name"] }}<br></span>
+	<label class="id-labels">Address:</label> <span id="personnel-{{personnel["id"]}}-address">{{ personnel["address"] }}<br></span>
+	<label class="id-labels">Email:</label> <span id="personnel-{{personnel["id"]}}-email">{{ personnel["email"] }}<br></span>
+	<label class="id-labels">Mobile:</label> <span id="personnel-{{personnel["id"]}}-mobile">{{ personnel["mobile"]  }}<br></span>
+	<label class="id-labels">Active Bookings:<br></label><span id="personnel-{{personnel["id"]}}-active-bookings"><br></span>
+	<label class="id-labels">Uploaded Documents:<br></label><span id="personnel-{{personnel["id"]}}-documents">None<br></span>
+	<label class="id-labels">Additional Notes<br></label><span id="personnel-{{personnel["id"]}}-notes">None<br></span>
+	<div class="bottom-right btn-group btn-group-2">
+         <button onClick="loadBlock('personnelEdit',
+                                    '#personnel-pane',
+                                    {'personnel': '{{ personnel["id"] }}'});
+                          return false;">Edit Profile</button>
+         <button onClick="deletePersonnel('{{ personnel["id"] }}'); return false;">Remove</button>
+     </div>
+</div>

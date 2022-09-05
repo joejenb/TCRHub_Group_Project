@@ -1,0 +1,20 @@
+<div id="client-pane">
+    <form>
+    <h3><span type="text" id="client-name">{{ client["name"] }}</span></h3>
+	<label class="id-labels">Account Type:</label><span id="client-{{client["id"]}}-account-type">Client</span><br>
+	<label class="id-labels">Name:</label><input id="client-{{client["id"]}}-name" value="{{ client["name"] }}"><br></input>
+	<label class="id-labels">Address:</label> <input id="client-{{client["id"]}}-address" value="{{ client["address"] }}"><br></input>
+	<label class="id-labels">Email:</label> <input id="client-{{client["id"]}}-email" value="{{ client["email"] }}"><br></input>
+	<label class="id-labels">Mobile:</label> <input id="client-{{client["id"]}}-mobile" value="{{ client["mobile"]  }}"><br></input>
+	<label class="id-labels">Active Bookings:<br></label><span id="client-{{client["id"]}}-active-bookings"><br></span>
+	<label class="id-labels">Uploaded Documents:<br></label><span id="client-{{client["id"]}}-documents">None<br></span>
+	<label class="id-labels">Additional Notes<br></label><span id="client-{{client["id"]}}-notes">None<br></span>
+	<div class="bottom-right btn-group btn-group-2">
+        <button onClick="saveClient('{{ client["id"] }}'); return false;">Save Changes</button>
+        <button onClick="loadBlock('clientInfo',
+                                   '#client-pane',
+                                   {'client': '{{ client["id"] }}'}); return false;">Cancel Changes
+        </button>
+    </div>
+    </form>
+</div>

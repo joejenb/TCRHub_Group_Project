@@ -1,0 +1,20 @@
+<div id="personnel-pane">
+    <form>
+    <h3><span type="text" id="personnel-name">{{ personnel["name"] }}</span></h3>
+	<label class="id-labels">Account Type:</label><span id="personnel-{{personnel["id"]}}-account-type">Personnel</span><br>
+	<label class="id-labels">Name:</label><input id="personnel-{{personnel["id"]}}-name" value="{{ personnel["name"] }}"><br></input>
+	<label class="id-labels">Address:</label> <input id="personnel-{{personnel["id"]}}-address" value="{{ personnel["address"] }}"><br></input>
+	<label class="id-labels">Email:</label> <input id="personnel-{{personnel["id"]}}-email" value="{{ personnel["email"] }}"><br></input>
+	<label class="id-labels">Mobile:</label> <input id="personnel-{{personnel["id"]}}-mobile" value="{{ personnel["mobile"]  }}"><br></input>
+	<label class="id-labels">Active Bookings:<br></label><span id="personnel-{{personnel["id"]}}-active-bookings"><br></span>
+	<label class="id-labels">Uploaded Documents:<br></label><span id="personnel-{{personnel["id"]}}-documents">None<br></span>
+	<label class="id-labels">Additional Notes<br></label><span id="personnel-{{personnel["id"]}}-notes">None<br></span>
+    <div class="bottom-right btn-group btn-group-2">
+        <button onClick="savePersonnel('{{ personnel["id"] }}'); return false;">Save Changes</button>
+        <button onClick="loadBlock('personnelInfo',
+                                   '#personnel-pane',
+                                   {'personnel': '{{ personnel["id"] }}'}); return false;">Cancel Changes
+        </button>
+    </div>
+    </form>
+</div>

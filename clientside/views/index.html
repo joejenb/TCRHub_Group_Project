@@ -1,0 +1,427 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>TCRHub</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+          integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script>
+	<script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="/javascripts/scripts.js"></script>
+
+</head>
+
+<body>
+<nav class="navbar navbar_main navbar-expand-sm">
+    <a class="navbar-brand" href="#bookings-overview">
+        <img src="https://www.tcrhub.co.uk/wp-content/uploads/2016/10/logo.png" alt="TCRHub" height="35">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="main_nav">
+        <ul class="navbar-nav navbar__links_center">
+            <li class="nav-item">
+                <a class="nav-link" href="#bookings-overview">Book Now</a>
+            </li>
+            <li class="nav-item client-ident" hidden>
+                <a class="nav-link" href="#bookings-calendar">Account</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar__links_right hidden-xs">
+			{% if client %} 
+			<li class="nav-item">
+				<a class="nav-link user-name" href="#account-pane">{{ client["name"] }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/api/entity/logout">Sign out</a>
+            </li>
+			{% else %}	
+            <li class="nav-item">
+                <a class="nav-link" href="#sign-in">Sign in</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#register">Register</a>
+            </li>
+			{% endif %}
+			<li class="nav-item">
+                <a class="nav-link" href="#basket"><i class="fas fa-shopping-bag"></i></a>
+            </li>
+        </ul>
+        </span>
+    </div>
+</nav>
+
+<div id="bookings">
+    <div id="bookings-overview" class="content">
+        <div class="jumbotron">
+            <h1>Bookings</h1>
+        </div>
+        <div class="view-facility">
+            <div class="bookings-overview-row">
+                <div class="bookings-overview-column">
+                    <h5>Recording Studio</h5>
+                    <p>In terms of regular activities we run lessons in guitar, bass, drums, music tech, singing,
+                        piano and Ukelele. These are Monday to Wednesday 3:30-8:30 (term time only). We offer one to
+                        one lessons at £12.50 for 30 mins and £15 for 45 mins. Group sessions may be possible on
+                        request...
+                    </p>
+                    <a href="#bookings-recordingStudio">Continue Reading</a>
+                </div>
+                <div class="bookings-overview-column">
+                    <h5>Cafe with a view</h5>
+                    <p>The Kitchen is set in the amazing atrium, overlooking the beautiful grounds of the TCR Hub. Take
+                        some time to order a cafetiere of coffee or pot of tea and a delicious piece of chocolate cake.
+                        With plenty of seating indoors and outdoors, you can enjoy watching the wildlife and taking in
+                        the breathtaking views of the lake.</p>
+                    <a href="#booking-cafeWithView">Continue Reading</a>
+                </div>
+
+                <div class="bookings-overview-column">
+                    <h5>Business Venue</h5>
+                    <p>Hold your event at the TCR Hub and invest in over 40 years of charitable work that has been
+                        carried out with children and young people from across Teesdale.
+                        Our venue can cater for up to 500 people across our indoor and outdoor facilities.If you are
+                        looking to hold a training session
+                        or meeting with us be assured that we can provide a good quality, clean and modern environment
+                        with technology to support your day.
+                    </p>
+                    <a href="#booking-businessVenue">Continue Reading</a>
+                </div>
+                <div class="bookings-overview-column">
+                    <h5>Kayaking & Canoeing</h5>
+                    <p>Canoeing and Kayaking on our custom built lake provides a safe venue in which to learn this
+                        fantastic sport. Both canoeing and kayaking combine teaching skills and techniques with
+                        activities such as water polo and stuck in the mud to allow the individual to build on the
+                        techniques learned...
+                    </p>
+                    <a href="#booking-canoeingKayaking">Continue Reading</a>
+                </div>
+                <div class="bookings-overview-column">
+                    <h5>Accomodation</h5>
+                    <p>We can accommodate up to 33 people throughout our 5 bedrooms. The rooms are clean, modern, bright
+                        and provide cost effective accommodation. They are very well equipped. We have wi-fi across the
+                        Hub. It is approximately 10 minutes walk into the town centre. Here you can shop 'til you drop.
+                        We welcome hen and stag groups, guests at private parties and attendees at any function. Call us
+                        to discuss your requirements on 01833 690150.
+                    </p>
+                    <a href="#booking-accomodation">Continue Reading</a>
+                </div>
+
+                <div class="bookings-overview-column">
+                    <h5>Transport</h5>
+                    <p>Teesdale Community Resources have been delivering Community Transport in Teesdale since 1978. We
+                        manage three minibuses for Community Transport. The vehicles are available for use by a range of
+                        customers such as schools, youth groups, community groups and charities...</p>
+                    <a href="#booking-transport">Continue Reading</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bookings-recordingStudio" class="content">
+        <div class="view-facility">
+            <h1 class="view-facility">Recording Studio</h1>
+            <br>
+            <h4>What's on?</h4>
+            <p>In terms of regular activities we run lessons in guitar, bass, drums, music tech, singing, piano and
+                Ukulele. These are Monday to Wednesday 3:30-8:30 (term time only).</p>
+            <p>We offer one to one lessons at £12.50 for 30 mins and £15 for 45 mins.</p>
+            <p>Group sessions may be possible on request.</p>
+            <p>If you are aged under 18 you can book a recording session for £14.</p>
+            <button onclick="bookResource(1);">Book now</button>
+        </div>
+    </div>
+    <div id="booking-cafeWithView" class="content">
+        <div class="view-facility">
+            <h1 class="view-facility">Cafe with a view</h1>
+            <br>
+            <h4>Afternoon Tea</h4>
+            <p>The Kitchen is set in the amazing atrium, overlooking the beautiful grounds of the TCR Hub. Take some
+                time to order a cafetiere of coffee or pot of tea and a delicious piece of chocolate cake. With plenty
+                of seating indoors and outdoors, you can enjoy watching the wildlife and taking in the breathtaking
+                views of the lake.</p>
+            <button onclick="bookResource(2);">Book now</button>
+        </div>
+    </div>
+    <div id="booking-businessVenue" class="content">
+        <div class="view-facility">
+            <h1 class="view-facility">Business Venue</h1>
+            <br>
+            <h4>Event Manager</h4>
+            <p>Our venue can cater for up to 500 people across our indoor and outdoor facilities.
+                We don’t do online bookings, meaning that every time you make a booking with us you have a relationship
+                with one of our team and can be confident that we will flex our offer to suit your needs.
+                Of course we still have a great online presence and you can browse our website for examples of the kind
+                of services we offer our community.</p>
+            <h4>Training Events</h4>
+            <p>If you are looking to hold a training session or meeting with us be assured that we can provide a good
+                quality, clean and modern environment with technology to support your day.
+                You will also work with our Reception Manager to ensure that you have everything to set the tone of your
+                event, from flipchart and pens to locally produced refreshments to break out rooms and activities.</p>
+            <h4>Team Building Activities</h4>
+            <p>We have an excellent reputation for delivery of outdoor activities and team building exercises and we can
+                work with you to create a programme that fits your requirements perfectly.
+                All our activities are on site therefore keeping the costs down and resulting in a cohesive experience
+                for everyone.</p>
+            <button onclick="bookResource(3);">Book now</button>
+        </div>
+    </div>
+    <div id="booking-canoeingKayaking" class="content">
+        <div class="view-facility">
+            <h1 class="view-facility">Kayaking & Canoeing</h1>
+            <br>
+            <h4>Kayaking & Canoeing</h4>
+            <p>Canoeing and Kayaking on our custom built lake provides a safe venue in which to learn this fantastic
+                sport.
+
+                Both canoeing and kayaking combine teaching skills and techniques with activities such as water polo and
+                stuck in the mud to allow the individual to build on the techniques learned.
+
+                Minimum age for canoeing is 6 years old and for kayaking is 10.
+
+                Instructors are BCU Level 2 or higher and fully trained in ICT Outdoor First Aid.
+
+                Buoyancy aids are provided must be worn at all times.</p>
+            <button onclick="bookResource(4);">Book now</button>
+        </div>
+    </div>
+    <div id="booking-accomodation" class="content">
+        <div class="view-facility">
+            <h1 class="view-facility">Accomodation</h1>
+            <br>
+            <h4>Want to stay in Barny?</h4>
+            <p>We can accommodate up to 33 people throughout our 5 bedrooms. The rooms are clean, modern, bright and
+                provide cost effective accommodation.
+
+                They are very well equipped. We have wi-fi across the Hub. It is approximately 10 minutes walk into the
+                town centre. Here you can shop 'til you drop.
+
+                We welcome hen and stag groups, guests at private parties and attendees at any function. Call us to
+                discuss your requirements on 01833 690150.
+
+                Attendees on courses in the area may book with us direct. A minimum of two people are required to stay
+                at any one time and at least 5 days notice must be given. We welcome individuals and groups to stay.</p>
+            <button onclick="bookResource(5);">Book now</button>
+        </div>
+    </div>
+    <div id="booking-transport" class="content">
+        <div class="view-facility">
+            <h1 class="view-facility">Accomodation</h1>
+            <br>
+            <h4>Community Transport</h4>
+            <p>Teesdale Community Resources have been delivering Community Transport in Teesdale since 1978. We manage
+                three minibuses for Community Transport. The vehicles are available for use by a range of customers such
+                as schools, youth groups, community groups and charities.</p>
+            <h4>Self-Drive</h4>
+            <p>Depending on availability, we may be able to provide a driver when hiring a minibus. We have a number of
+                volunteer drivers and two trained members of staff. If you or your organisation have a trained driver,
+                all we would ask for is a copy of the driving licence which shows the driver has an up-to-date D1
+                category on the license.
+
+                Anyone who passed their driving test prior to 1 January 1997 will have the D1 category on their
+                licence.</p>
+
+            <button onclick="bookResource(6);">Book now</button>
+        </div>
+    </div>
+
+
+    <div id="basket" class="content">
+        <div class="text-center">
+            <h1>Your basket<span id="basket-total"></span></h1>
+            <br>
+            <h5> Make sure you have <a href="#sign-in">registered</a> and are <a href="#sign-in">signed in</a> to view
+                and manage your bookings in future. </h5>
+        </div>
+        <div class="view-content">
+
+            <form class="form-inline active-cyan-4">
+                <input class="form-control form-control-sm mr-3 3" type="text" placeholder="Search" aria-label="Search">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </form>
+			<div class="left-view-list overflow-auto center-left">
+				<ul id="basket-list" class="list-group left-view-list-group">
+					<!-- Filled with AJAX-->
+				</ul>
+				<button id="btnBookMore" class="basket-left">Make more bookings</button>
+			</div>
+			<div class="details center-right">
+				<div class="border">
+					<div id="basket-item-info">
+
+					</div>
+				</div>
+				<button id="btnConfirmBookings" class="basket-right">Confirm bookings</button>
+			</div>
+        </div>
+
+    </div>
+
+    <div id="bookings-confirmation" class="content">
+        <div class="text-center">
+            <br>
+            <h1>Congratulations!</h1>
+            <br>
+            <h5>You should receive an email at sample@tcr.com shortly confirming your booking</h5>
+        </div>
+        <div class="basket-list">
+
+        </div>
+
+    </div>
+</div>
+
+<div id="book" class="content">
+    <div id="booking-form"></div>
+</div>
+
+{% if client %}
+<div id="bookings-calendar" class="content">
+	<div class="text-center" style="margin-top: 5%;">
+		{% set client_list = client["name"].split(" ") if client else " " %}
+		<h1 class="welcome">Welcome back, <span class="user-name">{{ client_list[0] }}</span></h1>
+		<nav class="navbar navbar_sub navbar-expand">
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav navbar__links_center">
+					<li class="nav-item nav-underline">
+						<a class="nav-link" href="#bookings-calendar">Booking Calendar</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#bookings-management">Manage Bookings</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#account-pane">Account Details</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="text-center">
+		<iframe style="border:none;width:90%;height:30em;" src="https://outlook.office365.com/owa/calendar/3fdea5fa71e746058a63ced0f60f43a3@durham.ac.uk/95778a7ba51f493fbe01cc5b7b836f9014368685488923316464/calendar.html">
+		</iframe>
+	</div>
+</div>
+
+<div id="bookings-management" class="content">
+	<div class="text-center" style="margin-top: 5%;">
+		{% set client_list = client["name"].split(" ") if client else " " %}
+		<h1 class="welcome">Welcome back, <span class="user-name">{{ client_list[0] }}</span></h1>
+		<nav class="navbar navbar_sub navbar-expand">
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav navbar__links_center">
+					<li class="nav-item">
+						<a class="nav-link" href="#bookings-calendar">Booking Calendar</a>
+					</li>
+					<li class="nav-item nav-underline">
+						<a class="nav-link" href="#bookings-management">Manage Bookings</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#account-pane">Account Details</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<div style="padding-top: 3%; padding-left: 6%; padding-right: 6%; padding-bottom: 6%;">
+		<form class="form-inline active-cyan-4">
+			<input class="form-control form-control-sm mr-3 3" type="text" placeholder="Search" aria-label="Search">
+			<i class="fas fa-search" aria-hidden="true"></i>
+		</form>
+		<div class="left-view-list overflow-auto mt-2">
+			<ul id="booking-list" class="list-group left-view-list-group">
+				<!-- Filled with AJAX-->
+			</ul>
+		</div>
+		<div class="details border">
+			<div id="booking-pane">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="account-pane" class="content">
+	<div class="text-center" style="margin-top: 5%;">
+		{% set client_list = client["name"].split(" ") if client else " " %}
+		<h1 class="welcome">Welcome back, <span class="user-name">{{ client_list[0] }}</span></h1>
+		<nav class="navbar navbar_sub navbar-expand">
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav navbar__links_center">
+					<li class="nav-item">
+						<a class="nav-link" href="#bookings-calendar">Booking Calendar</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#bookings-management">Manage Bookings</a>
+					</li>
+					<li class="nav-item nav-underline">
+						<a class="nav-link" href="#account-pane">Account Details</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<div class="container" style="padding-top: 3%;">
+		<div class="row">
+			<div class="center-left client-pane">
+				<h2 style="padding-bottom: 4%;">Personal Information</h2>
+				<label class="id-labels">Name:</label><span id="client-{{client["id"]}}-name">{{ client["name"] }}<br></span>
+				<label class="id-labels">Address:</label> <span id="client-{{client["id"]}}-address">{{ client["address"] }}<br></span>
+				<label class="id-labels">Email:</label> <span id="client-{{client["id"]}}-email">{{ client["email"] }}<br></span>
+			</div>
+			<div class="center-right details">
+				<h2>Uploaded Documents:</h2>
+				<div class="text-center">
+					<p id="client-{{client["id"]}}-documents" style="padding-top:18%;">You currently don't have any uploaded documents</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+<div id="sign-in" class="content">
+	<div id="login-form">
+	</div>
+</div>
+
+<div id="register" class="content">
+    <div id="registration-form">
+	</div>
+</div>
+
+
+<script type="text/javascript">
+    $(".content").hide();
+</script>
+</body>
+</html>
+
+
+    

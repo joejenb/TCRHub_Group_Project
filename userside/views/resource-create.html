@@ -1,0 +1,18 @@
+<div id="resource-pane">
+    <h4>Resource Name: <input id="resource-name">{{ resource["name"] }}</input></h4>
+    Unit:
+    <select type="text" id="resource-unit">
+        {% for unit in units %}
+        <option id='unit-option-{{unit["id"]}}' value='{{unit["name"]}}'>{{unit["name"]}}</option>
+        {% endfor %}
+    </select><br><br>
+
+    Slot time: <input id="resource-slot-time">{{ resource["slot-time"] }}</input><br>
+    <br>
+    Location: <input id="resource-location">{{resource["location"]}}</input><br>
+    Description: <input id="resource-description">{{resouce["description"]}}</input><br>
+    <div class="bottom-right btn-group btn-group-2">
+        <button onClick="createResource();return false;">Save Changes</button>
+        <button onClick="loadBlock('resourceInfo', '#resource-pane', {}); return false;">Cancel Changes</button>
+    </div>
+</div>

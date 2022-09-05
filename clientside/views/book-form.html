@@ -1,0 +1,41 @@
+<div id="booking-form">
+    <div class="view-facility">
+        <form>
+            <h4 id="booking-resource">
+                {{resource["name"]}}
+            </h4>
+
+            Date: <input type="text" id="booking-date" value=""><br>
+            <script>
+                $(function () {
+                    $("#booking-date").datepicker({});
+                    $("#booking-date").attr('readonly', 'readonly');
+
+                    var d = new Date();
+
+                    var month = d.getMonth()+1;
+                    var day = d.getDate();
+
+                    var dateStr = d.getFullYear() + '/' +
+                        ((''+month).length<2 ? '0' : '') + month + '/' +
+                        ((''+day).length<2 ? '0' : '') + day;
+
+                    $("#booking-date").attr('value', dateStr);
+                });
+            </script>
+            Time:
+            <input type="time" id="booking-time" value="12:00"><br>
+            <br>
+            Documents required:<br>
+            <span id="booking-documents"> <em>Out of scope for now</em><br></span><br>
+            <br>
+            Additional notes:<br>
+            <span id="booking-notes"><em>None</em></span>
+            <br>
+            <div class="bottom-right btn-group btn-group-2">
+                <button style="padding: 2px;" onclick="createBooking(); return false;">Add to basket</button>
+                <button onclick="cancelBooking();">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
